@@ -35,7 +35,7 @@ export default function Navbar() {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <img
-                    className="block lg:hidden h-8 w-auto"
+                    className="block h-8 w-auto"
                     src="./assets/bucketLogo.svg"
                     alt="Workflow"
                   />
@@ -64,7 +64,7 @@ export default function Navbar() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
                   <div>
-                    <Menu.Button className=" text-white flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]">
+                    <Menu.Button className=" text-white p-2 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]">
                       Connect Wallet
                     </Menu.Button>
                   </div>
@@ -98,16 +98,7 @@ export default function Navbar() {
                           </a>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item>
+                      
                     </Menu.Items>
                   </Transition>
                 </Menu>
