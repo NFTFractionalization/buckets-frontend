@@ -3,10 +3,30 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import CollectionExample from './pages/CollectionExample';
+import Navbar from './components/Navbar';
+const Routing = () => {
+  return(
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" component={App} />
+        <Route exact path="/col" component={CollectionExample} />
+        {/* <Route path="/about" component={About} /> */}
+        {/* <Route path="/service" component={Service} /> */}
+      </Routes>
+      {/* <Footer/> */}
+    </Router>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <Navbar/> */}
+    {/* <Routing/> */}
+    <Navbar />
+    <CollectionExample/>
   </React.StrictMode>,
   document.getElementById('root')
 );

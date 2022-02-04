@@ -64,8 +64,8 @@ export default function Navbar() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
                   <div>
-                    <Menu.Button className=" text-white p-2 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]">
-                      Connect Wallet
+                    <Menu.Button className="m-3 text-white p-1 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]">
+                      <p className="p-1">Connect Wallet</p>
                     </Menu.Button>
                   </div>
                   <Transition
