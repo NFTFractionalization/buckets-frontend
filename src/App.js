@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <div className=" bg-black pt-10 text-center">
+        <h1 className="text-white  text-6xl">
+          Next-gen NFT investing <p className="text-transparent bg-clip-text bg-gradient-to-br from-[#CE4DA4] to-[#7353E5]"> For modern investors</p>
+        </h1>
+        <h3 className="text-gray-600 p-6 m-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Nullam aliquam quam viverra purus tellus purus. Convallis fusce</h3>
+      <span>
+        <button className="bg-gray-500 ">ddd</button>
+      </span>
+      </div>
     </div>
   );
 }
