@@ -28,7 +28,7 @@ function CollectionExample() {
                     <div>
                         {/* Similar buckets */}
                         {/* Trade fractions */}
-                        <TradeFractions imgUrl="./assets/BAYC_imgs.svg"/>
+                        <TradeFractions imgUrl="./assets/BAYC_imgs.svg" name="Degen Defi"/>
                     </div>
                 </div>
             </div>
