@@ -7,6 +7,14 @@ function Bucket(props) {
                     <div className="pl-3">
                         <h3 className="pt-2 text-2xl"> {props.name} </h3>
                         <img className=" p-4 h-42 w-86 object-scale-down" src={props.image} />
+                        <div className="p-3 m-2 grid grid-cols-2">
+                            <div className="rounded-2xl bg-gradient-to-br p-[7px] from-[#ca28bc] to-[#001aff] opacity-50">
+                                <p className="text-white text-3xl p-3">{props.holders}</p>
+                            </div>
+                            <div className="rounded-2xl bg-gradient-to-br p-[7px] from-[#ca28bc] to-[#001aff] opacity-50">
+                                <p className="text-white"></p>
+                            </div>
+                        </div>
                         <div className="pl-2 grid grid-cols-2">
                             <div className="text-left">
                                 <p className="text-xl decoration-8">$ 22.22 / Drop </p>
@@ -16,6 +24,7 @@ function Bucket(props) {
                             <div className="justify-end">
                                 <button className="rounded-2xl p-2 bg-gradient-to-br from-[#ca28bc] to-[#001aff]">
                                     {/* <img src="./assets/bucket.svg" /> */}
+                                    {/*  */}
                                     View
                                 </button>
                             </div>

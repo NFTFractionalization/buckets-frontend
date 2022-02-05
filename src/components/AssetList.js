@@ -4,7 +4,7 @@ function AssetList(props) {
             {props.nfts.map((nft, i) => {
                 return (
                     <div className="flex flex-row p-3 bg-white opacity-75 m-3 rounded-2xl">
-                        <img src={nft.image}></img>
+                        <img src={nft.image}/>
                         <p className="px-2">{nft.name}</p>
                         <p>{nft.name}</p>
                     </div>

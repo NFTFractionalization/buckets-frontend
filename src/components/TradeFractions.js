@@ -6,7 +6,8 @@ import OutlinedButton from "./OutlinedButton";
 function TradeFractions(props) {
 
     const [quantity, setQuantity] = useState(0);
-    const [usdEquiv, setUsdEquiv] = useState("$1,223");
+    const [usdEquiv, setUsdEquiv] = useState(1223);
+    const [usdEquivBalance, setUsdEquivBalance] = useState(1223);
     const [pricePerNft, setPricePerNft] = useState(props.sharePrice);
     const [totalCost, setTotalCost] = useState(0);
     const [ethBalance, setEthBalance] = useState("2.2")
@@ -14,10 +15,27 @@ function TradeFractions(props) {
         // 
         // slice at first space
         setTotalCost(parseFloat(pricePerNft.split(/[ ,]+/)) * quantity);
+        // updateUSDEquiv();
+    }
+
+    function updateUSDEquiv(q){
+        // Get price of eth maybe graph or moralis
+        let eth_price = 2333.40
+        
+        setUsdEquiv(q * eth_price);
+        // setTotalCost(quantity
+    }
+
+    function updateUSDEquivBalance(q){
+        // Get price of eth maybe graph or moralis
+        let eth_price = 2333.40
+        setUsdEquiv(q * eth_price);
+        // setTotalCost(quantity
     }
 
     function updateQuantity(q) {
-        setQuantity(q)
+        setQuantity(q);
+        updateUSDEquiv(q);
         calcCost();
 
     }
@@ -52,7 +70,7 @@ function TradeFractions(props) {
                             >Wallet Balance
                             </p>
                             <p className="text-right text-4xl decoration-4 text-transparent bg-clip-text bg-gradient-to-br from-[#CE4DA4] to-[#7353E5]">
-                                {usdEquiv}
+                                {usdEquivBalance}
                             </p>
                             <p className="text-right text-4xl decoration-4 text-transparent bg-clip-text bg-gradient-to-br from-[#CE4DA4] to-[#7353E5]">
                                 {ethBalance} ETH
@@ -75,7 +93,7 @@ function TradeFractions(props) {
                             </p>
                         </div>
                         <p className="text-left align-bottom text-gray-500 text-2xl decoration-4 text-transparent bg-clip-text bg-gradient-to-br from-[#CE4DA4] to-[#7353E5]">
-                            {quantity} @ {pricePerNft} ETH/share = {totalCost}ETH ({usdEquiv} USD)
+                            {quantity} @ {pricePerNft} /share = {totalCost}ETH ({usdEquiv} USD)
                         </p>
                     </div>
                     <div className="pt-3">
