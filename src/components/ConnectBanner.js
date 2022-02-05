@@ -1,3 +1,4 @@
+import React from "react";
 import OutlinedButton from "./OutlinedButton";
 function ConnectBanner() {
     return (

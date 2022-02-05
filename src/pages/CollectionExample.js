@@ -1,5 +1,7 @@
+import React from "react";
 import TradeFractions from '../components/TradeFractions';
-function CollectionExample() {
+import AssetList from '../components/AssetList';
+function CollectionExample(props) {
     return (
         <div className="pt-10 bg-black" >
             {/* title of collection */}
@@ -16,19 +18,20 @@ function CollectionExample() {
             </div>
             <div className="pl-4 bg-black">
                 <div className="grid grid-cols-2">
-                    <div>
-                        <img src="./assets/BAYC_imgs.svg"/>
+                    <div className="content-center items-center">
+                        <img src={props.image}/>
                         <div className="text-center">
-                            <h2 className="text-white text-3xl">Assets</h2>
-                            {/* <div className="opacity-50"> */}
-                                <button>ddd</button>
-                            {/* </div> */}
+                            <p className="text-white text-3xl">Assets</p>
+                        </div>
+                        <div className="rounded-xl bg-gray-500">
+                            <AssetList {...props}/>
                         </div>
                     </div>
                     <div>
                         {/* Similar buckets */}
                         {/* Trade fractions */}
-                        <TradeFractions imgUrl="./assets/BAYC_imgs.svg" name="Degen Defi"/>
+                        <TradeFractions {...props}/>
+                        
                     </div>
                 </div>
             </div>

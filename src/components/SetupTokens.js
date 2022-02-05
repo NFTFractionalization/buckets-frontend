@@ -1,4 +1,5 @@
 import OutlinedButton from "./OutlinedButton";
+// import React from "react";
 import { useEffect, useState } from "react";
 
 function SetupTokens(props) {
@@ -49,6 +50,8 @@ function SetupTokens(props) {
                     </select>
                     <OutlinedButton text="Mint Tokens" onClick={mintTokens()} />
                     {/* {priceMode === "constant" ? <div>const</div> : <div>pool</div>} */}
+
+
                 </div>
             </div>
         </div>
