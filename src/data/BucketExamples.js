@@ -6,13 +6,27 @@ export const bucketList = [
         image: "./assets/BAYC_imgs.svg",
         token_supply: 22222,
         nft_count: 22,
-        dv:"322 ETH"
+        dv:"322 ETH",
+        sharePrice:"0.22 ETH",
+        nfts: [{name:"nft for me ", address:"ENTER_ADDR", 
+            reference:"0xdddddd"
+        },
+        {name:"DOGE#2022 ", address:"ENTER_ADDR", 
+            reference:"0xdddddd"
+        },
+        {name:"CHAD#911 ", address:"ENTER_ADDR", 
+            reference:"0xdddddd"
+        }
+        ,{name:"FIB#1235 ", address:"ENTER_ADDR", 
+            reference:"0xdddddd"
+        }]
+
     },
     {
         name: "Nifty NFTers",
         symbol: "NNFT",
         description: "way too far in to turn back now ",
-        image: "./assets/BAYC_imgs.svg",
+        image: "",
         token_supply: 1000,
         nft_count: 5,
         dv:"62 ETH"
@@ -22,7 +36,7 @@ export const bucketList = [
         symbol: "LINKUP",
         description: "I was told this was a dating app",
         image: "./assets/BAYC_imgs.svg",
-        token_supply: 1000,
+        token_supply: 100110,
         nft_count: 5,
         dv:"62 ETH"
     }
