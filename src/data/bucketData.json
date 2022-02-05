@@ -1,0 +1,26 @@
+{
+    "symbol" : "DEGET",
+    "name" : "degen defi bucket",
+    "description" : "",
+    "image" : "./assets/BAYC_imgs.svg",
+    "token_supply" : 22222,
+    "nft_count" : 22,
+
+    "nfts" : [
+        {
+            "name" : "Degen Doge",
+            
+            "priceHistory" : [
+                {"price: " : "0.00", "date: " : "2020-01-01"},
+                {"price: " : "10.00", "date: " : "2020-01-03"},
+                {"price: " : "13.00", "date: " : "2020-01-04"},
+                {"price: " : "9.00", "date: " : "2020-01-05"},
+                {"price: " : "16.00", "date: " : "2020-01-06"},
+                {"price: " : "12.00", "date: " : "2020-01-07"},
+                {"price: " : "15.00", "date: " : "2020-01-08"},
+                {"price: " : "12.00", "date: " : "2020-01-09"}
+            ]
+        }
+    ]           
+
+}
