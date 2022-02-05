@@ -1,52 +1,61 @@
 import React from 'react';
+import {useState} from 'react';
 import Navbar from "../components/Navbar"
-import YourNFTS from "../components/YourNFTs"
+import YourNFTs from "../components/YourNFTs"
 import OutlinedButton from '../components/OutlinedButton';
+import userData from '../data/userWallet';
+import SetupTokens from '../components/SetupTokens.js'
+// load json from userWallet.json into object
+import { useMoralis } from "react-moralis";
+import { useNFTBalances } from "react-moralis";
+
+
+const NFTBalances = () => {
+    const { getNFTBalances, data, error, isLoading, isFetching } = useNFTBalances();
+  return (
+    <div>
+      {error && <>{JSON.stringify(error)}</>}
+      <button onClick={() => getNFTBalances({params:{chain:"matic"}})}>Refetch NFTBalances</button>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+      
+    </div>
+  );
+};
+
+
 function Liquifiy(props) {
+    const { authenticate, isAuthenticated, user } = useMoralis();
+    
     return (
-        <div className=" bg-bg0 flex bg-auto">
+        <div className=" bg-bg0 flex content-center bg-auto">
             <div className=" p-3 ">
                 <div className=" text-white text-center ">
                     <h1 className="text-3xl"> Liquifiy your nft </h1>
-                    <div className="grid grid-cols-2">
+                    <div  className="grid grid-cols-3 gap-3">
                         {/* Deposit nft section */}
-                        <YourNFTS/>
-                        <div className="rounded-3xl bg-gradient-to-tl from-rose-400 to-orange-300 p-4">
+                        <div className="bg-white opacity-60 rounded-2xl p-4 m-2 ">
+                        <p className=" opacity-100 text-transparent text-3xl bg-clip-text bg-gradient-to-br from-[#1b82f8] to-[#a70b78]"> Your NFTs</p>
+                        {userData.nfts.map(nft => {
+                            return (
+                                <div className="text-left text-gray-500 grid grid-cols-3 p-1">
+                                    {nft.name}
+                                    <div className=""></div>
+                                    <button className="bg-black rounded-full text-white">select</button>
+                                    
+                                </div>);
+                        })}
+                        </div>
+                        <div className="rounded-3xl  bg-gradient-to-tl from-rose-400 to-orange-300 p-4">
                             <h1 className="text-xl">Deposit your NFT</h1>
-                            <form className="w-full max-w-sm">
-                                <div class="md:flex md:items-center mb-6">
-                                    <div className="md:w-1/3">
-                                        <label className="block text-gray-300 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-                                            Full Name
-                                        </label>
-                                    </div>
-                                    <div class="md:w-2/3">
-                                        <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" value="Jane Doe"/>
-                                    </div>
-                                </div>
-                            </form>
-                            <OutlinedButton text="Select NFT" />
+                            {/* {isAuthenticated()?(<div>
+                                
+                            </div>):(<div></div>)} */}
+                            <NFTBalances/>
+                            <OutlinedButton text="Deposit NFT" />
 
                         </div>
                         {/* Configure liq */}
-                        <div className="rounded-3xl bg-gray-700 opacity-60 ">
-                            <h1 className="rounded-3xl"> Setup Tokenezation</h1>
-                            
-                            <div>
-                            <form className="w-full max-w-sm">
-                                <div class="md:flex md:items-center mb-6">
-                                    <div className="md:w-1/3">
-                                        <label className="block text-gray-300 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-                                            Full Name
-                                        </label>
-                                    </div>
-                                    <div class="md:w-2/3">
-                                        <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" value="Jane Doe"/>
-                                    </div>
-                                </div>
-                            </form>
-                            </div>
-                        </div>
+                        <SetupTokens/>
                     </div>
                 </div>
             </div>

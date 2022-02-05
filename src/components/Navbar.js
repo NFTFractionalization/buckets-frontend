@@ -3,7 +3,7 @@ import React from "react";
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-
+import { useMoralis } from "react-moralis";
 const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'Feed', href: '/feed', current: false },
@@ -16,6 +16,8 @@ function classNames(...classes) {
 }
 
 export default function Navbar(props) {
+
+  const { authenticate, isAuthenticated, user } = useMoralis();
   return (
     <Disclosure as="nav" className="bg-black">
       {({ open }) => (
@@ -64,10 +66,10 @@ export default function Navbar(props) {
                 
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
-                  <div>
+                  <div>{isAuthenticated?"Logged In" :
                     <Menu.Button className="m-3 text-white p-1 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]">
                       <p className="px-2 py-1">Connect Wallet</p>
-                    </Menu.Button>
+                    </Menu.Button>}
                   </div>
                   <Transition
                     as={Fragment}

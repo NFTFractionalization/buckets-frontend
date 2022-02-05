@@ -18,12 +18,12 @@ function CollectionExample(props) {
             </div>
             <div className="pl-4 bg-black">
                 <div className="grid grid-cols-2">
-                    <div className="content-center items-center">
+                    <div className="content-center items-center m-5">
                         <img src={props.image}/>
-                        <div className="text-center">
-                            <p className="text-white text-3xl">Assets</p>
+                        <div className="text-center pt-3 m-1">
+                        <p className=" text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-bl from-[#CE4DA4] to-[#56E1FF]"> Assets</p>
                         </div>
-                        <div className="rounded-xl bg-gray-500">
+                        <div className="rounded-xl p-2 bg-gradient-to-bl from-[#CE4DA4] to-[#56E1FF] p-4">
                             <AssetList {...props}/>
                         </div>
                     </div>

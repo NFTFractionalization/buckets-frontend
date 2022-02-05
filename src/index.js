@@ -7,17 +7,21 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CollectionExample from './pages/CollectionExample';
 import Liquifiy from './pages/Liquifiy';
 import Navbar from './components/Navbar';
-// import { Web3Auth } from "@web3auth/web3auth";
-// import { CHAIN_NAMESPACES } from "@web3auth/base";
+import Feed from './pages/Feed.js';
+import Login from './components/Login.js';
+import { bucketList } from './data/BucketExamples';
+import { MoralisProvider } from "react-moralis";
 
-
-
-
+ 
 ReactDOM.render(
   <React.StrictMode>
+      <MoralisProvider appId="1sNeRHQBsq5ZihAYmV3tcEVlWqoNe3aQMfR0EwxK" serverUrl="https://dknqzlqdlam7.usemoralis.com:2053/server">
+      
     <Navbar/>
-    {/* <App /> */}
+    <App />
     <Liquifiy />
+    <CollectionExample {...bucketList[0]}/>
+    </MoralisProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
