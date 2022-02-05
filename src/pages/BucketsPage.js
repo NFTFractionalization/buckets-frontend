@@ -5,26 +5,26 @@ import { bucketList } from "../data/BucketExamples";
 function BucketsPage(props) {
 
     return (
-        <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white p-4">
+        <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white p-2">
             {/* TOP BUCKETS */}
-            <div className="grid grid-cols-2 bg-inherit">
+            <div className="grid grid-rows-2 bg-inherit">
                 {/* {props.top_buckets[0]} */}
                 <div className="bg-black">
-                    <p className="text-3xl">Top Buckets</p>
+                    <p className="text-3xl text-center">Top Buckets</p>
                     <div>
                     {props.top_buckets.map((bucket, i) => {
                         return (
                             <div className="flex flex-wrap justify-center text-white m-2" key={props.key}>
                             <div className=" rounded-xl">
                                 <div className="flex  rounded-xl">
-                                    <div className="pl-3">
+                                    <div className="">
                                         <h3 className="pt-2 text-2xl"> {props.collection_name} </h3>
                                         {/* <img className=" p-4 h-42 w-86 object-scale-down" src={props.image} /> */}
-                                        <div className="pl-2 grid grid-cols-2">
+                                        <div className="pl-2 grid grid-cols-2 m-4 bg-white">
                                             <div className="text-left">
                                                 <p className="text-xl decoration-8">$ 22.22 / Drop </p>
-                                                {/* <p className="text-gray-400">Total supply: {props.token_supply}</p> */}
-                                                {/* <p className="text-gray-400">Implied Valuation: {props.} </p> */}
+                                                <p className="text-gray-400">Total supply: {props.token_supply}</p>
+                                                <p className="text-gray-400">Implied Valuation: {props.imp_val} </p>
                                             </div>
                                             <div className="justify-end">
                                                 <button className="rounded-2xl p-2 bg-gradient-to-br from-[#ca28bc] to-[#001aff]">

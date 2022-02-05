@@ -27,10 +27,10 @@ function Liquifiy(props) {
     const { authenticate, isAuthenticated, user } = useMoralis();
     const [selectedNFT, setSelectedNFT] = useState(null);
     return (
-        <div className=" bg-bg0 flex content-center bg-auto">
+        <div className=" bg-black flex content-center bg-auto">
             <div className=" p-3 ">
                 <div className=" text-white text-center ">
-                    <h1 className="text-3xl"> Liquifiy your nft </h1>
+                    <h1 className="text-3xl m-3"> Liquifiy your nft </h1>
                     <div className="grid grid-cols-3 gap-3">
                         {/* Deposit nft section */}
                         <div className="bg-white opacity-80 rounded-2xl p-4 m-2 ">

@@ -12,13 +12,13 @@ export const bucketList = [
             reference:"0xdddddd"
         },
         {name:"DOGE#2022 ", address:"ENTER_ADDR", 
-            reference:"0xdddddd"
+            reference:"0xdddddd", image: "https://lh3.googleusercontent.com/2rkjm-NLwufq40Tu94YqwsjstT1iXpK1MGGmWGH9kJl_LmhD0mT5yhqxSKQP0MMQIpLxwYPDKxoCAiuJP1MudZRDTktmmtmw-yW19A=w535",
         },
         {name:"CHAD#911 ", address:"ENTER_ADDR", 
-            reference:"0xdddddd"
+            reference:"0xdddddd", image: "https://lh3.googleusercontent.com/2rkjm-NLwufq40Tu94YqwsjstT1iXpK1MGGmWGH9kJl_LmhD0mT5yhqxSKQP0MMQIpLxwYPDKxoCAiuJP1MudZRDTktmmtmw-yW19A=w535",
         }
         ,{name:"FIB#1235 ", address:"ENTER_ADDR", 
-            reference:"0xdddddd"
+            reference:"0xdddddd", image: "https://lh3.googleusercontent.com/2rkjm-NLwufq40Tu94YqwsjstT1iXpK1MGGmWGH9kJl_LmhD0mT5yhqxSKQP0MMQIpLxwYPDKxoCAiuJP1MudZRDTktmmtmw-yW19A=w535",
         }]
 
     },
@@ -26,7 +26,7 @@ export const bucketList = [
         name: "Nifty NFTers",
         symbol: "NNFT",
         description: "way too far in to turn back now ",
-        image: "",
+        image: "https://lh3.googleusercontent.com/2rkjm-NLwufq40Tu94YqwsjstT1iXpK1MGGmWGH9kJl_LmhD0mT5yhqxSKQP0MMQIpLxwYPDKxoCAiuJP1MudZRDTktmmtmw-yW19A=w535",
         token_supply: 1000,
         nft_count: 5,
         dv:"62 ETH"
