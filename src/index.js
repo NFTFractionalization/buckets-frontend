@@ -11,7 +11,8 @@ import Feed from './pages/Feed.js';
 import Login from './components/Login.js';
 import { bucketList } from './data/BucketExamples';
 import { MoralisProvider } from "react-moralis";
-
+import BucketsPage from "./pages/BucketsPage";
+import bucketPageData from "./data/bucketPage";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -33,6 +34,9 @@ ReactDOM.render(
 
           {/* COLLECTION OVERVIEW AND STATS */}
           <Route path="collection" element={<CollectionExample {...bucketList[0]} />} />
+
+          {/* Buckets Page */}
+          <Route path="buckets" element={<BucketsPage{...bucketPageData}/>}/>
 
         </Routes>
       </BrowserRouter>,
