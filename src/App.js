@@ -8,8 +8,8 @@ import ConnectBanner from './components/ConnectBanner';
 import { useMoralis } from "react-moralis";
 
 function App() {
-  const { authenticate, isAuthenticated, user } = useMoralis();
-  const {logout, isAuthenticating } = useMoralis();
+  // const { authenticate, isAuthenticated, user } = useMoralis();
+  // const {logout, isAuthenticating } = useMoralis();
   return (
     <div>
       <div>

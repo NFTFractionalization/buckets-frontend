@@ -25,8 +25,8 @@ function TradeFractions(props) {
 
     return (
         <div className="bg-black text-white text-center content-center">
-            <h1 className="text-3xl">Trade Fractions</h1>
-            <div className="bg-gradient-to-br from-[#CE4DA4] to-[#7353E5] rounded-3xl">
+            <h1 className="text-5xl text-transparent bg-clip-text bg-gradient-to-tl from-[#CE4DA4] to-[#7353E5] text-semibold">Trade Fractions</h1>
+            <div className="bg-gradient-to-br from-[#CE4DA4] to-[#7353E5] rounded-3xl p-3 m-5">
                 <div className="max-w- p-5">
                     <div className="p-5 content-center">
                         {/* <img src={props.image} /> */}
@@ -64,8 +64,8 @@ function TradeFractions(props) {
                     </div>
                 </div>
                 {/* you send */}
-                <div className="m-3 bg-white rounded-3xl ">
-                    <div className="p-3 opacity-3 grid grid-cols-2">
+                <div className="m-3  bg-white rounded-3xl ">
+                    <div className="p-3 grid grid-cols-2 ">
                         <div className="w-xs">
                             <p className="text-left text-2xl decoration-4 text-transparent bg-clip-text bg-gradient-to-br from-[#CE4DA4] to-[#7353E5]">
                                 Total Cost
@@ -78,7 +78,7 @@ function TradeFractions(props) {
                             {quantity} @ {pricePerNft} ETH/share = {totalCost}ETH ({usdEquiv} USD)
                         </p>
                     </div>
-                    <div className="pt-4">
+                    <div className="pt-3">
                         <button className="rounded-3xl bg-gradient-to-r p-[4px] mb-4 from-[#7928ca] to-[#ff0080]">
                             <div className="flex justify-between bg-white rounded-3xl  hover:bg-gradient-to-r p-[4px] from-[#7928ca] to-[#ff0080]">
                                 <div className="decoration-9 text-[#7928ca] to-[#ff0080] flex m-2 pl-3 pr-3 hover:text-white">
