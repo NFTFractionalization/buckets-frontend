@@ -7,31 +7,14 @@ import userData from '../data/userWallet';
 import SetupTokens from '../components/SetupTokens.js'
 
 // load json from userWallet.json into object
-import { useMoralis,authenticate,enableWeb3 } from "react-moralis";
+import { useMoralis, authenticate, enableWeb3 } from "react-moralis";
 // import {Token } from "react-moralis";
 import { Units} from "moralis";
 import { useNFTBalances } from "react-moralis";
 import { useWeb3Transfer } from 'react-moralis';
 import { useEffect } from 'react';
-// const Moralis = require('moralis');
-// import { ErrorMe
 
-
-// const NFTBalances = () => {
-//     const { getNFTBalances, data, error, isLoading, isFetching } = useNFTBalances();
-//     return (
-//         <div>
-//             {error && <>{JSON.stringify(error)}</>}
-//             <button onClick={() => getNFTBalances({ params: { chain: "matic" } })}>Refetch NFTBalances</button>
-//             <pre>{JSON.stringify(data, null, 2)}</pre>
-
-//         </div>
-//     );
-// };
-
-
-
-const TransferNFT = () => {
+const TransferNFT = (nft) => {
     // const { authenticate, isAuthenticated, user } = useMoralis();
     
     const {fetch, error, isFetching} = useWeb3Transfer({
@@ -54,18 +37,19 @@ const TransferNFT = () => {
 function Liquifiy(props) {
     const {isInitialized, Moralis} = useMoralis();
     const [userNFTs, setUserNFTs] = useState([]);
+    const [selectedNFT, setSelectedNFT] = useState({});
     // sending a token with token id = 1
     
-    /*
+    
     useEffect(()=>{
         if(isInitialized){
-            Moralis.Web3.getNFTs({chain: "mumbai", address: Moralis.User.current()});
+            Moralis.Web3.getNFTs({chain: "mumbai"}).then(setUserNFTs);
         }
     }, [isInitialized, Moralis]);
     
     if(!isInitialized){
         return null;
-    }*/
+    }
 
     /*
     Moralis.onChainChanged(async function (chain){
@@ -79,7 +63,6 @@ function Liquifiy(props) {
         tokenId: "0xf163ad3c908d158924f0ed0f6ea26ee76951edef000000000000010000000001"
     }
    
-    const [selectedNFT, setSelectedNFT] = useState(null);
     return (
         <div className=" bg-black flex content-center bg-auto">
             <div className=" p-3 ">
@@ -89,19 +72,22 @@ function Liquifiy(props) {
                         {/* Deposit nft section */}
                         <div className="bg-white opacity-80 rounded-2xl p-4 m-2 ">
                             <p className=" opacity-100 text-transparent text-3xl bg-clip-text bg-gradient-to-br from-[#1b82f8] to-[#a70b78]"> Your NFTs</p>
-                            {userData.nfts.map(nft => {
+                    
+                            {userNFTs.map(nft => {
                                 return (
                                     <div className="text-left text-gray-500 grid grid-cols-3 p-1">
                                         <div className="flex flex-wrap justify-center content-fill">
-                                            <div className="sm:w-8/12 pr-2">
+                                            {/*<div className="sm:w-8/12 pr-2">
                                                 <img src={nft.image} alt="..." className="rounded max-h-2/3 w-auto align-middle border-none" />
-                                            </div>
+                                            </div>*/}
                                         </div>
                                         <div>
                                             {nft.name}
-                                            <a href={nft.address}><p className="text-cyan-400">Address</p></a>
+                                            <a href={nft.token_address}><p className="text-cyan-400 text-ellipsis overflow-hidden">{nft.token_address}</p></a>
                                         </div>
-                                        <button value={nft.name} onClick={(e) => setSelectedNFT(e.target.value)} className="bg-black rounded-2xl text-white m-3">select</button>
+                                        <button value={nft} onClick={(e) => {
+                                            setSelectedNFT(e.target.value)
+                                            }} className="bg-black rounded-2xl text-white m-3">select</button>
 
                                     </div>);
                             })}
