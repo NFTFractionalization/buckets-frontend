@@ -14,6 +14,7 @@ import { MoralisProvider } from "react-moralis";
 import BucketsPage from "./pages/BucketsPage";
 import bucketPageData from "./data/bucketPage";
 import YourAssets from "./pages/YourAssets";
+import {Web3Context,useWeb3Context} from "./data/contexts/ConnectContext";
 ReactDOM.render(
   <React.StrictMode>
 
@@ -22,7 +23,7 @@ ReactDOM.render(
 
       <Navbar/>
       <BrowserRouter>
-        <Routes>ˇ
+        <Routes>
           {/* HOME PAGE */}
           <Route path="/" element={<App />} />
 
