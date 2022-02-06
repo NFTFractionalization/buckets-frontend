@@ -40,11 +40,6 @@ function CollectionExample(props) {
 
                 </div>
             </div>
-            {/* pills showing traits */}
-            {/* list of NFTs */}
-            {/* similar buckets */}
-            {/* Trade fractional */}
-
         </div>
     );
 }

@@ -5,9 +5,10 @@ import YourNFTs from "../components/YourNFTs"
 import OutlinedButton from '../components/OutlinedButton';
 import userData from '../data/userWallet';
 import SetupTokens from '../components/SetupTokens.js'
+import {ethers } from 'ethers';
 
 // load json from userWallet.json into object
-import { useMoralis, authenticate, enableWeb3, useWeb3ExecuteFunction } from "react-moralis";
+// import { useMoralis, authenticate, enableWeb3, useWeb3ExecuteFunction } from "react-moralis";
 // import {Token } from "react-moralis";
 import { Units} from "moralis";
 import { useWeb3Transfer } from 'react-moralis';
@@ -16,34 +17,19 @@ import { VaultAddr, VaultABI } from '../VaultInfo';
 
 function ErrorMessage(props){
     return(
-        <div>{props.error}</div>
+        <div>{JSON.stringify(props.error)}</div>
     )
 }
 
-function GetDeposits(props){
-    const {data, error, fetch, isFetching, isLoading} = useWeb3ExecuteFunction();
-    let options = {
-        abi: VaultABI,
-        contractAddress: VaultAddr,
-        functionName: "getOwnedInternalIds",
-        params: {
-            account: props.userAddr
-        }
-    }
 
-    return (<div>
-        {error && <ErrorMessage error={error} />}
-        <button onClick={() => fetch({ params: options })} disabled={isFetching}>Fetch data</button>
-        {data && <pre>
-          {JSON.stringify(data)}
-        </pre>}
-      </div>)
-}
 
 function TransferNFT(props){
+    console.log("TOKEN ID: ", props.nft.token_id)
+    console.log("TOKEN token_add: ", props.nft.token_address)
+    console.log("vault ", VaultAddr);
     const {fetch, error, isFetching} = useWeb3Transfer({
-        type: "erc721",
         amount: Units.Token(1,18),
+        type: "erc721",
         receiver: VaultAddr, /* Daniel's address */
         contractAddress: props.nft.token_address,
         tokenId: props.nft.token_id,
@@ -65,30 +51,52 @@ function TransferNFT(props){
 
 
 function Liquifiy(props) {
-    const {isInitialized, Moralis, authenticate, isAuthenticated, user} = useMoralis();
+    // const {isInitialized, Moralis, authenticate, isAuthenticated, user} = useMoralis();
     const [userNFTs, setUserNFTs] = useState([]);
     const [userAddr, setUserAddr] = useState("");
     const [currentChain, setCurrentChain] = useState("mumbai");
     const [selectedNFT, setSelectedNFT] = useState({});
+
+    // function GetDeposits(props){
+    //     const {data, error, fetch, isFetching, isLoading} = useWeb3ExecuteFunction();
+    //     let options = {
+    //         abi: VaultABI,
+    //         contractAddress: VaultAddr,
+    //         functionName: "getOwnedInternalIds",
+    //         params: {
+    //             account: userAddr
+    //         }
+    //     }
+    
+    //     return (<div>
+    //         {<ErrorMessage error={error} />}
+    //         <button onClick={() => fetch({ params: options })} disabled={isFetching}>Fetch data</button>
+    //         {data && <pre>
+    //           {/* {JSON.stringify(data)} */}
+    //           {ethers.utils.arrayify(data).toString()}
+    //           {console.log(data)}
+    //         </pre>}s
+    //       </div>)
+    // }
     // sending a token with token id = 1    
     
-    useEffect(()=>{
-        const EWeb3 = async () =>{
-            await authenticate();
-            if(isInitialized, isAuthenticated){
-                Moralis.Web3.getNFTs({chain: currentChain}).then(setUserNFTs);
-                setUserAddr(user.get("ethAddress"));
-            }
-        }
-        EWeb3();
+    // useEffect(()=>{
+    //     const EWeb3 = async () =>{
+    //         await authenticate();
+    //         if(isInitialized, isAuthenticated){
+    //             Moralis.Web3.getNFTs({chain: currentChain}).then(setUserNFTs);
+    //             setUserAddr(user.get("ethAddress"));
+    //         }
+    //     }
+    //     EWeb3();
 
         
         
-    }, [isInitialized, Moralis]);
+    // }, [isInitialized, Moralis]);
     
-    if(!isInitialized){
-        return null;
-    }
+    // if(!isInitialized){
+    //     return null;
+    // }
    
     return (
         <div className=" bg-black flex content-center bg-auto">
@@ -118,7 +126,7 @@ function Liquifiy(props) {
                         </div>
                         <div className="rounded-3xl  bg-gradient-to-tl from-rose-400 to-orange-300 mt-19">
                             <h1 className="text-xl">Your Deposits</h1>
-                            <GetDeposits userAddr={userAddr}/>
+                            {/* <GetDeposits userAddr={userAddr}/> */}
                         </div>
                         {/* Configure liq */}
                         <SetupTokens />

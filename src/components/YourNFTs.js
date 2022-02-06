@@ -14,7 +14,6 @@ const NFTBalances = () => {
       <button onClick={() => getNFTBalances()}>Refetch NFTBalances</button>
       <pre>{!isLoading && !isFetching?data.response.items.map((nftItem)=>{
         return(<div>
-          
         </div>)})
       :null}</pre>
       <div>
