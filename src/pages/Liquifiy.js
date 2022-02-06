@@ -5,10 +5,10 @@ import YourNFTs from "../components/YourNFTs"
 import OutlinedButton from '../components/OutlinedButton';
 import userData from '../data/userWallet';
 import SetupTokens from '../components/SetupTokens.js'
-import {ethers } from 'ethers';
+// import {ethers } from 'ethers';
 
 // load json from userWallet.json into object
-// import { useMoralis, authenticate, enableWeb3, useWeb3ExecuteFunction } from "react-moralis";
+import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 // import {Token } from "react-moralis";
 import { Units} from "moralis";
 import { useWeb3Transfer } from 'react-moralis';
@@ -39,7 +39,7 @@ function TransferNFT(props){
         onSuccess: ()=>{
             console.log("TRANSFER SUCCEEDED!!!");
             //props.userNFTs.filter(function(nft){return nft === props.nft});
-            //props.setUserNFTs(props.userNFTs);
+            // props.setUserNFTs(userNFTs);
         }
     });
   
@@ -57,27 +57,27 @@ function Liquifiy(props) {
     const [currentChain, setCurrentChain] = useState("mumbai");
     const [selectedNFT, setSelectedNFT] = useState({});
 
-    // function GetDeposits(props){
-    //     const {data, error, fetch, isFetching, isLoading} = useWeb3ExecuteFunction();
-    //     let options = {
-    //         abi: VaultABI,
-    //         contractAddress: VaultAddr,
-    //         functionName: "getOwnedInternalIds",
-    //         params: {
-    //             account: userAddr
-    //         }
-    //     }
+    function GetDeposits(props){
+        const {data, error, fetch, isFetching, isLoading} = useWeb3ExecuteFunction();
+        let options = {
+            abi: VaultABI,
+            contractAddress: VaultAddr,
+            functionName: "getOwnedInternalIds",
+            params: {
+                account: userAddr
+            }
+        }
     
-    //     return (<div>
-    //         {<ErrorMessage error={error} />}
-    //         <button onClick={() => fetch({ params: options })} disabled={isFetching}>Fetch data</button>
-    //         {data && <pre>
-    //           {/* {JSON.stringify(data)} */}
-    //           {ethers.utils.arrayify(data).toString()}
-    //           {console.log(data)}
-    //         </pre>}s
-    //       </div>)
-    // }
+        return (<div>
+            {<ErrorMessage error={error} />}
+            <button onClick={() => fetch({ params: options })} disabled={isFetching}>Fetch data</button>
+            {data && <pre>
+              {/* {JSON.stringify(data)} */}
+              
+              {console.log(data)}
+            </pre>}s
+          </div>)
+    }
     // sending a token with token id = 1    
     
     // useEffect(()=>{

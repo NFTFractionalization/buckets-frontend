@@ -17,10 +17,11 @@ import { useWeb3Transfer, useMoralis} from 'react-moralis';
 function Wrapper(){
   const { logout, isAuthenticating } = useMoralis();
   const { authenticate, isAuthenticated, user } = useMoralis();
+  const { userNfts, setUserNFTs} = useState();
   return (
     <div>
 
-      <Navbar  authenticate={authenticate} logout={logout}/>
+      <Navbar  authenticate={authenticate} logout={logout} isAuthenticated={isAuthenticated}/>
       <BrowserRouter>
         <Routes>
           {/* HOME PAGE */}
@@ -30,7 +31,7 @@ function Wrapper(){
           <Route path="feed" element={<Feed />} />
 
           {/* CREATING NEW FRACTIONALIZED */}
-          <Route path="new" element={<Liquifiy />} />
+          <Route path="new" element={<Liquifiy userNfts={userNfts} setUserNFTs={setUserNFTs} isAuthenticated={isAuthenticated}/>} />
 
           {/* COLLECTION OVERVIEW AND STATS */}
           <Route path="collection" element={<CollectionExample {...bucketList[0]} />} />
