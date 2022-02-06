@@ -5,7 +5,8 @@
     "image" : "./assets/BAYC_imgs.svg",
     "token_supply" : 22222,
     "nft_count" : 22,
-
+    "tokens_avail" : 222,
+    "token_price" : 0.01,
     "nfts" : [
         {
             "name" : "Degen Doge",
