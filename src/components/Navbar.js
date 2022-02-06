@@ -16,18 +16,18 @@ function classNames(...classes) {
 }
 
 export default function Navbar(props) {
-  const { logout, isAuthenticating } = useMoralis();
-  const { authenticate, isAuthenticated, user } = useMoralis();
+  // const { logout, isAuthenticating } = useMoralis();
+  // const { authenticate, isAuthenticated, user } = useMoralis();
   
   const LogoutButton = () => {
-    if (!isAuthenticated) {
+    if (!props.isAuthenticated) {
       return (
-        <button className="m-3 text-white p-1 flex text-sm rounded-full  bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]" onClick={() => authenticate()
+        <button className="m-3 text-white p-1 flex text-sm rounded-full  bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]" onClick={() => props.authenticate()
         }>
       Connect wallet
         </button >);
     }
-     else {return(<button className="m-3 text-white p-1 flex text-sm rounded-full  bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]" onClick={() => logout()} disabled={isAuthenticating}>
+     else {return(<button className="m-3 text-white p-1 flex text-sm rounded-full  bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]" onClick={() => props.logout()} disabled={props.isAuthenticating}>
       Logout
       </button >)
      }
@@ -78,7 +78,7 @@ return (
                 <LogoutButton/>
               </Menu>
             </div>
-            {!isAuthenticated?<button onClick={() => authenticate()}>Authenticate</button>:<div><button onClick={() => logout()}>logout</button> </div>}
+            {!props.isAuthenticated?<button onClick={() => props.authenticate()}>Authenticate</button>:<div><button onClick={() => props.logout()}>logout</button> </div>}
           </div>
         </div>
 

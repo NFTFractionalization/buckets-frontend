@@ -10,40 +10,19 @@ import Navbar from './components/Navbar';
 import Feed from './pages/Feed.js';
 import Login from './components/Login.js';
 import { bucketList } from './data/BucketExamples';
-import { MoralisProvider } from "react-moralis";
+// import { MoralisProvider } from "react-moralis";
 import BucketsPage from "./pages/BucketsPage";
 import bucketPageData from "./data/bucketPage";
 import YourAssets from "./pages/YourAssets";
-import {Web3Context,useWeb3Context} from "./data/contexts/ConnectContext";
+import Wrapper from "./Wrapper";
+import { MoralisProvider } from "react-moralis";
+
 ReactDOM.render(
   <React.StrictMode>
-
-    {/* ALLOWS REACT-MORALIS TO BE USED INSIDE ANY COMPONENT */}
     <MoralisProvider appId="1sNeRHQBsq5ZihAYmV3tcEVlWqoNe3aQMfR0EwxK" serverUrl="https://dknqzlqdlam7.usemoralis.com:2053/server">
 
-      <Navbar/>
-      <BrowserRouter>
-        <Routes>
-          {/* HOME PAGE */}
-          <Route path="/" element={<App />} />
-
-          {/* FEED AND NFT OVERVIEW PAGE */}
-          <Route path="feed" element={<Feed />} />
-
-          {/* CREATING NEW FRACTIONALIZED */}
-          <Route path="new" element={<Liquifiy />} />
-
-          {/* COLLECTION OVERVIEW AND STATS */}
-          <Route path="collection" element={<CollectionExample {...bucketList[0]} />} />
-
-          {/* USER ASSETS */}
-          <Route path="/user" element={<YourAssets/>} />
-
-          {/* Buckets Page */}
-          <Route path="buckets" element={<BucketsPage{...bucketPageData}/>}/>
-
-        </Routes>
-      </BrowserRouter>,
+    {/* ALLOWS REACT-MORALIS TO BE USED INSIDE ANY COMPONENT */}
+    <Wrapper/>
     </MoralisProvider>
   </React.StrictMode>,
   document.getElementById('root')
