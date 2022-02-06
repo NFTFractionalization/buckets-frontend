@@ -58,7 +58,7 @@ function TransferNFT(props){
     });
   
     return (<div>
-      {error && <div>{error.toString()} </div>}
+      {error && <div><ErrorMessage error={error}/> </div>}
       <button className="bg-black rounded-2xl text-white m-3" onClick={() => fetch()} disabled={isFetching}>Transfer</button>
     </div>)
   }
@@ -95,7 +95,7 @@ function Liquifiy(props) {
             <div className=" p-3 ">
                 <div className=" text-white text-center ">
                     <h1 className="text-3xl m-3"> Liquifiy your nft </h1>
-                    <h1 className="text-2xl m-3"> {userAddr} </h1>
+                    <div className="text-2xl m-3"> Wallet <p className="text-cyan-700">{userAddr}</p></div>
                     <div className="grid grid-cols-3 gap-3">
                         {/* Deposit nft section */}
                         <div className="bg-white opacity-80 rounded-2xl p-4 m-2 overflow-y-auto h-96">
