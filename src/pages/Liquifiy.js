@@ -5,26 +5,80 @@ import YourNFTs from "../components/YourNFTs"
 import OutlinedButton from '../components/OutlinedButton';
 import userData from '../data/userWallet';
 import SetupTokens from '../components/SetupTokens.js'
+
 // load json from userWallet.json into object
-import { useMoralis } from "react-moralis";
+import { useMoralis,authenticate,enableWeb3 } from "react-moralis";
+// import {Token } from "react-moralis";
+import { Units} from "moralis";
 import { useNFTBalances } from "react-moralis";
+import { useWeb3Transfer } from 'react-moralis';
+import { useEffect } from 'react';
+// const Moralis = require('moralis');
+// import { ErrorMe
 
 
-const NFTBalances = () => {
-    const { getNFTBalances, data, error, isLoading, isFetching } = useNFTBalances();
-    return (
-        <div>
-            {error && <>{JSON.stringify(error)}</>}
-            <button onClick={() => getNFTBalances({ params: { chain: "matic" } })}>Refetch NFTBalances</button>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
+// const NFTBalances = () => {
+//     const { getNFTBalances, data, error, isLoading, isFetching } = useNFTBalances();
+//     return (
+//         <div>
+//             {error && <>{JSON.stringify(error)}</>}
+//             <button onClick={() => getNFTBalances({ params: { chain: "matic" } })}>Refetch NFTBalances</button>
+//             <pre>{JSON.stringify(data, null, 2)}</pre>
 
-        </div>
-    );
-};
+//         </div>
+//     );
+// };
+
+
+
+const TransferNFT = () => {
+    // const { authenticate, isAuthenticated, user } = useMoralis();
+    
+    const {fetch, error, isFetching} = useWeb3Transfer({
+        type: "erc721",
+        amount: Units.Token(1,18),
+        receiver: "0x54D713fDbDC1bD9634A83cF1ebe3Cb91825d536f", /* Daniel's address */
+        contractAddress: "0x519498450961b093D78ab616A59fDadA2bc5C1f5",
+        tokenId: 1,
+        // params: {chainId:"mumbui"}
+    });
+  
+    return (<div>
+        {/* {isAuthenticated?<div>{user.getUser()}</div>:"NONE"} */}
+      {error && <div>{error.toString()} </div>}
+      <button onClick={() => fetch()} disabled={isFetching}>Transfer</button>
+    </div>)
+  }
 
 
 function Liquifiy(props) {
-    const { authenticate, isAuthenticated, user } = useMoralis();
+    const {isInitialized, Moralis} = useMoralis();
+    const [userNFTs, setUserNFTs] = useState([]);
+    // sending a token with token id = 1
+    
+    /*
+    useEffect(()=>{
+        if(isInitialized){
+            Moralis.Web3.getNFTs({chain: "mumbai", address: Moralis.User.current()});
+        }
+    }, [isInitialized, Moralis]);
+    
+    if(!isInitialized){
+        return null;
+    }*/
+
+    /*
+    Moralis.onChainChanged(async function (chain){
+        console.log(chain);
+    });*/
+
+    const options = {
+        type: "erc721",
+        receiver: "0x54D713fDbDC1bD9634A83cF1ebe3Cb91825d536f", /* Daniel's address */
+        contractAddress: "0x2953399124f0cbb46d2cbacd8a89cf0599974963",
+        tokenId: "0xf163ad3c908d158924f0ed0f6ea26ee76951edef000000000000010000000001"
+    }
+   
     const [selectedNFT, setSelectedNFT] = useState(null);
     return (
         <div className=" bg-black flex content-center bg-auto">
@@ -45,19 +99,20 @@ function Liquifiy(props) {
                                         </div>
                                         <div>
                                             {nft.name}
-                                            <a  href={nft.address}><p className="text-cyan-400">Address</p></a>
+                                            <a href={nft.address}><p className="text-cyan-400">Address</p></a>
                                         </div>
-                                        <button value={nft.name} onClick={(e)=>setSelectedNFT(e.target.value)}className="bg-black rounded-2xl text-white m-3">select</button>
+                                        <button value={nft.name} onClick={(e) => setSelectedNFT(e.target.value)} className="bg-black rounded-2xl text-white m-3">select</button>
 
                                     </div>);
                             })}
                         </div>
-                        <div className="rounded-3xl  bg-gradient-to-tl from-rose-400 to-orange-300 p-4">
+                        <div className="rounded-3xl  bg-gradient-to-tl from-rose-400 to-orange-300 mt-19">
                             <h1 className="text-xl">Deposit your NFT</h1>
-                            <NFTBalances />
+                            {/* <NFTBalances /> */}
                             <p className="text-white text-2xl">Selected NFT</p>
+                            <TransferNFT/>
                             {!selectedNFT ? <p> No NFT selected</p> : <p> {selectedNFT.toString()}</p>}
-                            <OutlinedButton text="Deposit NFT" />
+                            {/* <OutlinedButton  text="Deposit NFT" onClick={(options)=>transfer_nft(options)} /> */}
 
                         </div>
                         {/* Configure liq */}

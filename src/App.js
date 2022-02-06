@@ -5,13 +5,13 @@ import Navbar from './components/Navbar';
 import BucketView from './components/BucketView';
 import OutlinedButton from './components/OutlinedButton';
 import ConnectBanner from './components/ConnectBanner';
+// import 
 import { useMoralis } from "react-moralis";
 // import { useNFTBalances } from "react-moralis";
 
 function App() {
   
-  const { authenticate, isAuthenticated, user } = useMoralis();
-  const {logout, isAuthenticating } = useMoralis();
+  
   return (
     <div className="">
       {/* <div>

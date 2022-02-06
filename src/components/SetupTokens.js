@@ -10,9 +10,20 @@ function SetupTokens(props) {
     const [selectedNFT, setSelectedNFT] = useState("");
     const [symbol, setSymbol] = useState("");
 
-    function mintTokens() {
-        // impl still
+    function deposit() {
+        // operator (account sending the nft)
+        // tokenId (id of the nft)
+        // nftAddrs (address of the nft)
+        
     }
+
+    function mintTokens(){
+        // supply
+        // amountToKeep
+
+
+    }
+
 
     return (
         <div className=" rounded-2xl bg-gradient-to-bl from-[#CE4DA4] to-[#56E1FF] p-4">

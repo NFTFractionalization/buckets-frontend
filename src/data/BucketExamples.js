@@ -10,7 +10,7 @@ export const bucketList = [
         sharePrice:"0.22 ETH",
         imp_val_col: "22.22 ETH",
         nfts: [{name:"nft for me ", address:"ENTER_ADDR", 
-            reference:"0xdddddd", image:"https://lh3.googleusercontent.com/2rkjm-NLwufq40Tu94YqwsjstT1iXpK1MGGmWGH9kJl_LmhD0mT5yhqxSKQP0MMQIpLxwYPDKxoCAiuJP1MudZRDTktmmtmw-yW19A=w535",
+            reference:"0xdddddd", image:"./assets/chad_1.png",
             imp_val_nft: "2.2 ETH",
             unique_owners: "22",
             tokens_avail : 22,
@@ -34,7 +34,7 @@ export const bucketList = [
             token_price : 1.1,
         }
         ,{name:"FIB#1235 ", address:"ENTER_ADDR", 
-            reference:"0xdddddd", image: "https://lh3.googleusercontent.com/2rkjm-NLwufq40Tu94YqwsjstT1iXpK1MGGmWGH9kJl_LmhD0mT5yhqxSKQP0MMQIpLxwYPDKxoCAiuJP1MudZRDTktmmtmw-yW19A=w535",
+            reference:"0xdddddd", image: "chad_1.png",
             imp_val_nft: "1.6 ETH",
             last_sale : "1.2 ETH",
             unique_owners : "58",
