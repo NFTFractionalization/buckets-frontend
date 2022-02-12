@@ -132,12 +132,14 @@ function Liquifiy(props) {
                         </div>
                         {/* Configure liq */}
                         <SetupTokens />
-                        <div className="grid grid-cols-2 gap-2">
-                            <UserAssets {...props} />
-                        </div>
-                            <VaultContents {...props}/>
-                            <VaultMinted {...props}/>
                     </div>
+                        <div className="grid grid-cols-2 gap-2">
+                            <VaultContents {...props}/>
+                            <div>
+                                <UserAssets {...props} />
+                                <VaultMinted {...props}/>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>

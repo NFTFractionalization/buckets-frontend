@@ -10,7 +10,7 @@ export default function VaultMinted(props){
 
     return (
     <div className="bg-black">
-        <div className="bg-white bg-opacity-30">
+        <div className="bg-white bg-opacity-30 rounded-3xl m-2 p-3">
             <p className="text-2xl text-black pb-1">🪣  Vault Minted Tokens 🪣 </p>
             <OutlinedButton className="bg-white text-black" onClick={() => fetch()}> Load Mints</OutlinedButton>
             {!isLoading && data!==null ?
