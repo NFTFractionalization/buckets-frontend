@@ -13,9 +13,7 @@ export default function VaultContents(props) {
             {/* <div className="grid grid-cols-4"> */}
             <div className="bg-white text-white rounded-2xl bg-opacity-30 mx-2">
                 <p>Total NFTS In Vault</p>
-                <p className="text-cyan-400 text-2xl">{data!==null? data.total:
-                
-                <button className="bg-white" onClick={() => fetch()}> Load Vault NFTs</button>
+                <p className="text-cyan-400 text-2xl">{data!==null? data.total:0
                 }</p>
             </div>
             {!isLoading && data!==null ? <div>
@@ -31,7 +29,7 @@ export default function VaultContents(props) {
                             </div>
                             <div>
                                 <p className="text-gray-400 text-left">symbol</p>
-                                <p className="text-cyan-400 text-2xl pl-2">{item.symbol}</p>
+                                <p className="text-cyan-400 text-xl pl-2">{item.symbol}</p>
                             </div>
                             <div className="">
                                 <p className="text-gray-400" > addr </p>

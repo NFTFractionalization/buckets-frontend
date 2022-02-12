@@ -1,19 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
-import Navbar from "../components/Navbar"
-import YourNFTs from "../components/YourNFTs"
 import OutlinedButton from '../components/OutlinedButton';
-import userData from '../data/userWallet';
 import SetupTokens from '../components/SetupTokens.js'
+import VaultContents from '../components/VaultContents';
+import VaultMinted from '../components/VaultMinted';
+import YourNFTs from '../components/YourNFTs';
 // import {ethers } from 'ethers';
-
+import { Moralis} from 'moralis';
 // load json from userWallet.json into object
-import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
-// import {Token } from "react-moralis";
-import { Units} from "moralis";
+import { useMoralis, useWeb3ExecuteFunction,  } from "react-moralis";
+
+import { Units } from "moralis";
 import { useWeb3Transfer } from 'react-moralis';
 import { useEffect } from 'react';
 import { VaultAddr, VaultABI } from '../VaultInfo';
+import UserAssets from '../components/UserAssets';
 
 function ErrorMessage(props){
     return(
@@ -33,14 +34,6 @@ function TransferNFT(props){
         receiver: VaultAddr, /* Daniel's address */
         contractAddress: props.nft.token_address,
         tokenId: props.nft.token_id,
-        // params: {chainId:"mumbui"}
-
-        //THIS ISNT ACTUALLY RUNNING ;(
-        onSuccess: ()=>{
-            console.log("TRANSFER SUCCEEDED!!!");
-            //props.userNFTs.filter(function(nft){return nft === props.nft});
-            // props.setUserNFTs(userNFTs);
-        }
     });
   
     return (<div>
@@ -57,44 +50,48 @@ function Liquifiy(props) {
     const [currentChain, setCurrentChain] = useState("mumbai");
     const [selectedNFT, setSelectedNFT] = useState({});
 
-    function GetDeposits(props){
+    function GetDeposits(props1){
         const {data, error, fetch, isFetching, isLoading} = useWeb3ExecuteFunction();
         let options = {
             abi: VaultABI,
             contractAddress: VaultAddr,
-            functionName: "getOwnedInternalIds",
+            functionName: "getDepositAmount",
             params: {
-                account: userAddr
+                account: "0xf163aD3C908D158924F0eD0f6ea26EE76951eDef"
             }
         }
+        
     
         return (<div>
             {<ErrorMessage error={error} />}
-            <button onClick={() => fetch({ params: options })} disabled={isFetching}>Fetch data</button>
+            <button onClick={() => fetch({params:options.params, options})} disabled={isFetching}>Fetch data</button>
+            {!isLoading && data!==null ? <div>{JSON.stringify(data)}</div> : null}
             {data && <pre>
-              {/* {JSON.stringify(data)} */}
+              {JSON.stringify(data)}
               
               {console.log(data)}
-            </pre>}s
+            </pre>}
+            <pre>{JSON.stringify(error, null, 2)}</pre>
+                <pre>{JSON.stringify(isLoading, null, 2)}</pre>
           </div>)
     }
     // sending a token with token id = 1    
     
     // useEffect(()=>{
     //     const EWeb3 = async () =>{
-    //         await authenticate();
-    //         if(isInitialized, isAuthenticated){
-    //             Moralis.Web3.getNFTs({chain: currentChain}).then(setUserNFTs);
-    //             setUserAddr(user.get("ethAddress"));
+    //         // await props.authenticate();
+    //         if(props.isInitialized && props.isAuthenticated){
+    //             Moralis.Web3.getNFTs().then(setUserNFTs);
+    //             setUserAddr(props.user("ethAddress"));
     //         }
     //     }
     //     EWeb3();
 
         
         
-    // }, [isInitialized, Moralis]);
+    // }, [props.isInitialized, Moralis]);
     
-    // if(!isInitialized){
+    // if(!props.isInitialized){
     //     return null;
     // }
    
@@ -107,8 +104,13 @@ function Liquifiy(props) {
                     <div className="grid grid-cols-3 gap-3">
                         {/* Deposit nft section */}
                         <div className="bg-white opacity-80 rounded-2xl p-4 m-2 overflow-y-auto h-96">
+                            <div className="grid grid-flow-col gap-0">
+                                <p className="mt-2">🎨</p>
                             <p className=" opacity-100 text-transparent text-3xl bg-clip-text bg-gradient-to-br from-[#1b82f8] to-[#a70b78]"> Your NFTs</p>
-                            {userNFTs.map(nft => {
+                            <p className="mt-2">🎨</p>
+                            <YourNFTs {...props}/>
+                            </div>
+                            {props.userNFTs.map(nft => {
                                 return (
                                     <div className="text-left text-gray-500 grid grid-cols-3 p-1">
                                         <div className="flex flex-wrap justify-center content-fill">
@@ -120,16 +122,21 @@ function Liquifiy(props) {
                                             {nft.name}
                                             <a href={nft.token_address}><p className="text-cyan-400 text-ellipsis overflow-hidden">{nft.token_address}</p></a>
                                         </div>
-                                        <TransferNFT nft={nft} userNFTs={userNFTs} setUserNFTs={setUserNFTs}/>
+                                        <TransferNFT nft={nft} userNFTs={props.userNFTs} setUserNFTs={props.setUserNFTs}/>
                                     </div>);
                             })}
                         </div>
-                        <div className="rounded-3xl  bg-gradient-to-tl from-rose-400 to-orange-300 mt-19">
+                        <div className="rounded-3xl  bg-gradient-to-bl from-pink-500 via-red-500 to-yellow-500 mt-19">
                             <h1 className="text-xl">Your Deposits</h1>
-                            {/* <GetDeposits userAddr={userAddr}/> */}
+                            <GetDeposits userAddr={props.userAddr} />
                         </div>
                         {/* Configure liq */}
                         <SetupTokens />
+                        <div className="grid grid-cols-2 gap-2">
+                            <UserAssets {...props} />
+                        </div>
+                            <VaultContents {...props}/>
+                            <VaultMinted {...props}/>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ export function Box(props){
         // </div>
         <div className="h-30 w-auto max-w-xs bg-white text-white  shadow-2xl shadow-cyan rounded-2xl bg-opacity-20 text-center m-3 hover:shad">
             <p className = "text-gray-300 ">{props.label}</p>
-            <p className={props.color_text +" text-3xl align-middle opacity-100"}>{props.value}</p>
+            <p className={props.color_text +" text-2xl align-middle opacity-100"}>{props.value}</p>
 
             {/* label */}
         </div>

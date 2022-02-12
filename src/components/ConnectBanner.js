@@ -7,8 +7,8 @@ function ConnectBanner() {
                 <div>
                     <p className="text-white text-4xl text-left m-4">Connect your wallet and start trading today</p>
                 </div>
-                <div className=" grid grid-cols-2 gap-1">
-                        <button className="rounded-3xl bg-white text-black m-5 pl-3 pr-3">Get Started</button>
+                <div className=" grid grid-cols-2 gap-1 text-white">
+                        <button className="rounded-3xl m-3 bg-gradient-to-br p-[7px] from-[#1d2c86] to-[#05c545]">Get Started</button>
                         <OutlinedButton text="Connect Wallet" />
                 </div>
             </div>

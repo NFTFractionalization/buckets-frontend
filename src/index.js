@@ -13,7 +13,6 @@ import { bucketList } from './data/BucketExamples';
 // import { MoralisProvider } from "react-moralis";
 import BucketsPage from "./pages/BucketsPage";
 import bucketPageData from "./data/bucketPage";
-import YourAssets from "./pages/YourAssets";
 import Wrapper from "./Wrapper";
 import { MoralisProvider } from "react-moralis";
 

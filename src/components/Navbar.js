@@ -16,18 +16,21 @@ function classNames(...classes) {
 }
 
 export default function Navbar(props) {
-  // const { logout, isAuthenticating } = useMoralis();
   // const { authenticate, isAuthenticated, user } = useMoralis();
-  
+  // const {logout, isAuthenticating } = useMoralis();
+
+  const { logout, isAuthenticating } = useMoralis();
+  const { authenticate, isAuthenticated, } = useMoralis();
+  // console.log(user);
   const LogoutButton = () => {
-    if (!props.isAuthenticated) {
+    if (!isAuthenticated) {
       return (
-        <button className="m-3 text-white p-1 flex text-sm rounded-full  bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]" onClick={() => props.authenticate()
+        <button className="m-3 text-white p-1 flex text-sm rounded-full  bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]" onClick={() => authenticate()
         }>
       Connect wallet
         </button >);
     }
-     else {return(<button className="m-3 text-white p-1 flex text-sm rounded-full  bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]" onClick={() => props.logout()} disabled={props.isAuthenticating}>
+     else {return(<button className="m-3 text-white p-1 flex text-sm rounded-full  bg-gradient-to-r p-[5px] from-[#7928ca] to-[#ff0080]" onClick={() => logout()} disabled={isAuthenticating}>
       Logout
       </button >)
      }
@@ -36,17 +39,17 @@ export default function Navbar(props) {
 
 
 
+
 return (
   <Disclosure as="nav" className="bg-black">
     {({ open }) => (
       <>
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-          <div className="relative flex items-center justify-between h-16">
-            
+          <div className="relative flex items-center justify-between h-20">
             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex-shrink-0 flex items-center">
                 <img
-                  className="block h-8 w-auto"
+                  className="block h-11 w-auto"
                   src="./assets/bucketLogo.svg"
                   alt="Workflow"
                 />
@@ -74,11 +77,11 @@ return (
 
               {/* Profile dropdown */}
               <Menu as="div" className="ml-3 relative">
-                {/* ALSO LOGIN BUTTON */}
+                
                 <LogoutButton/>
               </Menu>
             </div>
-            {!props.isAuthenticated?<button onClick={() => props.authenticate()}>Authenticate</button>:<div><button onClick={() => props.logout()}>logout</button> </div>}
+            {/* {!isAuthenticated?<button onClick={() => authenticate()}>Authenticate</button>:<div><button onClick={() => logout()}>logout</button> </div>} */}
           </div>
         </div>
 

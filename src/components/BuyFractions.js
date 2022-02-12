@@ -49,6 +49,7 @@ function BuyFractions(props) {
                     <div className="p-5 content-center">
                         {/* <img src={props.image} /> */}
                         <h2 className="text-3xl">{props.name}</h2>
+                        <h2 className="text-3xl">0.03 ETH/share</h2>
                     </div>
                 </div>
                 <div className="m-5 p-3">

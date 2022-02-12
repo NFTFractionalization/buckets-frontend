@@ -49,6 +49,7 @@ function SellFractions(props) {
                     <div className="p-5 content-center">
                         {/* <img src={props.image} /> */}
                         <h2 className="text-3xl">{props.name}</h2>
+                        <h2 className="text-3xl pt-3"> 0.3 ETH/share</h2>
                     </div>
                 </div>
                 <div className="m-5 p-3">
@@ -98,7 +99,7 @@ function SellFractions(props) {
                     </div>
                     <div className="pt-3">
                         <button className="rounded-3xl bg-gradient-to-r p-[4px] mb-4 from-[#7928ca] to-[#ff0080]">
-                            <div className="flex justify-between bg-white rounded-3xl  hover:bg-gradient-to-r p-[4px] from-[#7928ca] to-[#ff0080]">
+                            <div className="flex justify-between bg-white rounded-3xl  hover:bg-gradient-to-rb p-[5px] from-[#7928ca] to-[#ff0080]">
                                 <div className="decoration-9 text-[#7928ca] to-[#ff0080] flex m-2 pl-3 pr-3 hover:text-white">
                                     Sell {props.symbol}
                                 </div>
