@@ -2,7 +2,7 @@ import OutlinedButton from "./OutlinedButton";
 
 function AssetList(props) {
     return (
-        <div className="m-3 pt-3 p-3  bg-opacity-70 rounded-3xl">
+        <div className="m-3 pt-3 p-3  bg-opacity-90 rounded-3xl">
             {props.nfts.map((nft, i) => {
                 return (
                     <div className="max-h-xs p-2 bg-white rounded-2xl opacity-75 m-2 rounded-2xl">
