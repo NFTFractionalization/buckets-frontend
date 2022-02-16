@@ -3,9 +3,6 @@ import Box from "../components/Box";
 import GradientText from "../components/GradientText";
 function BucketsPage(props) {
 
-    const romans = {
-        
-    }
 
     return (
         <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white p-2">
@@ -25,7 +22,10 @@ function BucketsPage(props) {
                                             {/* <img className=" p-4 h-42 w-86 object-scale-down" src={bucket.image} /> */}
                                             <div className="pl-2 grid grid-cols-4 m-4 bg-black">
                                                 <div className="text-left p-1">
-                                                    <p className="text-cyan-400">floor (7d) {bucket.floor_price_quote_7d}</p>
+                                                    <div className="attribute-box">
+                                                        <p className="label-text">floor (7d) </p>
+                                                        <p className="text-cyan-400">{bucket.floor_price_quote_7d}</p>
+                                                    </div>
                                                     <p className="text-pink-600">quote vol(24h) {bucket.volume_quote_24h} </p>
                                                     <p className="text-purple-700"># {bucket.unique_token_ids_sold_count_alltime} Uniques</p>
                                                     <p className="text-pink-300"> {bucket.unique_wallet_purchase_count_alltime} exchanges</p>
@@ -35,8 +35,7 @@ function BucketsPage(props) {
                                                         {/* <img src="./assets/bucket.svg" /> */}
                                                         View
                                                     </button>
-                                                    <GradientText></GradientText>
-                                                    <Box></Box>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

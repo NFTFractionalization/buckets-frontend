@@ -10,9 +10,9 @@ function App() {
     <div className="">
       <div className=" bg-black pt-10 text-center">
         <h1 className="text-white  text-5xl p-1">
-          One of a Kind NFT Liquidity Solution<p className="text-transparent bg-clip-text bg-gradient-to-br from-[#CE4DA4] to-[#7353E5]"> For modern investors</p>
+          Its that degen twitter gambling shit<p className="text-transparent bg-clip-text bg-gradient-to-br from-[#CE4DA4] to-[#7353E5]"> For the modern APE</p>
         </h1>
-        <h3 className="text-white-600 p-6 m-5">Redefining NFT Liquidity, through partial ownership. The NFT depositors are able to choose the percentage of ownership they would like to keep for the fractionalized NFT and received that respective percentage of FRAC tokens while the rest are kept in the Buckets' vault. Fractionalizing an NFT allows the depositor to realize the value of the NFT while still holding a percentage of it. </h3>
+        <h3 className="text-white p-6 m-5 opacity-70">Redefining NFT Liquidity, through partial ownership, valued off public sentiment. shorting or going long on an NFT is now as easy as swiping on tinder </h3>
         <button className=" rounded-3xl bg-gradient-to-r p-[3px] from-[#7928ca] to-[#ff0080]">
           <div className="flex flex-col justify-between  bg-black rounded-3xl hover:bg-gradient-to-r p-[3px] from-[#7928ca] to-[#ff0080]">
             <div className="text-white decoration-4 text-light flex justify-between m-2 pl-3 pr-3">

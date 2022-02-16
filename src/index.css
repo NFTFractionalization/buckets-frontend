@@ -10,6 +10,15 @@
   }
 }
 
+.attribute-box{
+  padding: 4;
+  background: #ffffff;
+  color: #222222;
+  opacity: 50%;
+  border-radius: 20px;
+  align-items: center;
+}
+
 
 
 
@@ -45,7 +54,7 @@
 .value-text {
   font-size: large;
   color: #0ff735;
-  padding-left: 
+  /* padding-left:  */
 }
 /* body {
   margin: 0;
