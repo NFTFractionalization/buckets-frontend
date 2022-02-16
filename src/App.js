@@ -10,7 +10,7 @@ function App() {
     <div className="">
       <div className=" bg-black pt-10 text-center">
         <h1 className="text-white  text-5xl p-1">
-          Its that degen twitter gambling shit<p className="text-transparent bg-clip-text bg-gradient-to-br from-[#CE4DA4] to-[#7353E5]"> For the modern APE</p>
+          Its that degen tinder gambling shit<p className="text-transparent bg-clip-text bg-gradient-to-br from-[#CE4DA4] to-[#7353E5]"> For the modern APE</p>
         </h1>
         <h3 className="text-white p-6 m-5 opacity-70">Redefining NFT Liquidity, through partial ownership, valued off public sentiment. shorting or going long on an NFT is now as easy as swiping on tinder </h3>
         <button className=" rounded-3xl bg-gradient-to-r p-[3px] from-[#7928ca] to-[#ff0080]">
