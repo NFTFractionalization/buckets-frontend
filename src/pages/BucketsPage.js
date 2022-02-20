@@ -19,7 +19,6 @@ function BucketsPage(props) {
 
                                         <div className="p-3">
                                             <h3 className="pt-3 pl-3 text-3xl"> {bucket.collection_name} </h3>
-                                            {/* <img className=" p-4 h-42 w-86 object-scale-down" src={bucket.image} /> */}
                                             <div className="pl-2 grid grid-cols-4 m-4 bg-black">
                                                 <div className="text-left p-1">
                                                     <div className="attribute-box">
@@ -32,7 +31,6 @@ function BucketsPage(props) {
                                                 </div>
                                                 <div className="">
                                                     <button className="rounded-2xl p-2 bg-gradient-to-br from-[#ca28bc] to-[#001aff]">
-                                                        {/* <img src="./assets/bucket.svg" /> */}
                                                         View
                                                     </button>
                                                     
